@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,700&amp;family=Manrope:wght@300;400;600;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-fixed-dim": "#ebb2ff",
+                        "on-secondary-container": "#5b000f",
+                        "background": "#121318",
+                        "primary-fixed": "#f8d8ff",
+                        "error-container": "#93000a",
+                        "on-surface-variant": "#d4c0d7",
+                        "primary-container": "#bc13fe",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "error": "#ffb4ab",
+                        "on-error": "#690005",
+                        "surface-bright": "#38393f",
+                        "on-primary-fixed": "#320047",
+                        "surface-dim": "#121318",
+                        "surface-container": "#1e1f25",
+                        "secondary-fixed-dim": "#ffb3b2",
+                        "on-tertiary-container": "#ffffff",
+                        "tertiary": "#ffb960",
+                        "surface-container-low": "#1a1b21",
+                        "on-secondary-fixed": "#410008",
+                        "secondary-container": "#ff525c",
+                        "secondary-fixed": "#ffdad8",
+                        "on-surface": "#e3e1e9",
+                        "surface": "#121318",
+                        "inverse-surface": "#e3e1e9",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#ffb960",
+                        "on-primary": "#520072",
+                        "secondary": "#ffb3b2",
+                        "on-secondary-fixed-variant": "#92001e",
+                        "on-secondary": "#680012",
+                        "primary": "#ebb2ff",
+                        "on-tertiary-fixed": "#2b1700",
+                        "surface-variant": "#34343a",
+                        "inverse-on-surface": "#2f3036",
+                        "on-background": "#e3e1e9",
+                        "outline-variant": "#504254",
+                        "surface-tint": "#ebb2ff",
+                        "tertiary-container": "#a76900",
+                        "surface-container-highest": "#34343a",
+                        "inverse-primary": "#9800d0",
+                        "on-primary-container": "#ffffff",
+                        "on-primary-fixed-variant": "#74009f",
+                        "surface-container-high": "#292a2f",
+                        "on-tertiary": "#472a00",
+                        "outline": "#9d8ba0",
+                        "surface-container-lowest": "#0d0e13",
+                        "tertiary-fixed": "#ffddb8"
+                    },
+                    fontFamily: {
+                        "headline": ["Newsreader", "serif"],
+                        "body": ["Manrope", "sans-serif"],
+                        "label": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3Ex%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 150px 150px;
+            opacity: 1;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .active-glow {
+            box-shadow: 0 0 20px rgba(188, 19, 254, 0.4);
+        }
+
+        .neon-card-glow {
+            box-shadow: 0 10px 30px -10px rgba(188, 19, 254, 0.15);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 0px;
+            width: 0px;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+    <!-- TopAppBar Shell -->
+    <header class="fixed top-0 w-full z-50 bg-[#121318]/80 backdrop-blur-xl shadow-[0_20_50px_rgba(188,19,254,0.12)]">
+        <div class="flex justify-between items-center px-8 h-20 w-full max-w-none">
+            <div class="text-3xl font-serif italic tracking-tighter text-[#e3e1e9] font-headline">WhisperBox</div>
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center gap-8 h-full">
+                <a class="text-[#ebb2ff] border-b-2 border-[#bc13fe] pb-1 font-body" href="#">Hot</a>
+                <a class="text-[#d4c0d7] hover:text-[#e3e1e9] transition-colors font-body" href="#">Trending</a>
+                <a class="text-[#d4c0d7] hover:text-[#e3e1e9] transition-colors font-body" href="#">New</a>
+                <a class="text-[#d4c0d7] hover:text-[#e3e1e9] transition-colors font-body" href="#">Top</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <button class="p-2 text-[#d4c0d7] hover:bg-[#292a2f]/50 rounded-full transition-all duration-300">
+                    <span class="material-symbols-outlined">search</span>
+                </button>
+                <button class="p-2 text-[#d4c0d7] hover:bg-[#292a2f]/50 rounded-full transition-all duration-300">
+                    <span class="material-symbols-outlined">dark_mode</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="pt-24 pb-32 px-4 md:px-8 max-w-5xl mx-auto">
+        <!-- Sub-header: Tab Navigation Bar (Mobile focus) -->
+        <div class="flex items-center justify-around md:hidden mb-6 bg-surface-container-low/50 rounded-2xl p-1">
+            <button
+                class="flex-1 py-3 text-[#ebb2ff] bg-[#bc13fe]/10 rounded-xl shadow-[0_0_15px_rgba(188,19,254,0.3)] flex flex-col items-center gap-1">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">whatshot</span>
+                <span class="text-[10px] uppercase tracking-widest font-bold">Hot</span>
+            </button>
+            <button class="flex-1 py-3 text-[#d4c0d7] flex flex-col items-center gap-1">
+                <span class="material-symbols-outlined">trending_up</span>
+                <span class="text-[10px] uppercase tracking-widest font-bold">Trending</span>
+            </button>
+            <button class="flex-1 py-3 text-[#d4c0d7] flex flex-col items-center gap-1">
+                <span class="material-symbols-outlined">new_releases</span>
+                <span class="text-[10px] uppercase tracking-widest font-bold">New</span>
+            </button>
+            <button class="flex-1 py-3 text-[#d4c0d7] flex flex-col items-center gap-1">
+                <span class="material-symbols-outlined">equalizer</span>
+                <span class="text-[10px] uppercase tracking-widest font-bold">Top</span>
+            </button>
+        </div>
+        <!-- Category Filter Chips -->
+        <section class="mb-12">
+            <div class="flex overflow-x-auto gap-3 pb-4 custom-scrollbar">
+                <button
+                    class="whitespace-nowrap px-6 py-2 bg-primary-container text-on-primary-container rounded-full text-sm font-bold active-glow transition-all">All
+                    Confessions</button>
+                <button
+                    class="whitespace-nowrap px-6 py-2 bg-surface-container-high text-on-surface-variant hover:text-primary rounded-full text-sm font-medium transition-all">Love</button>
+                <button
+                    class="whitespace-nowrap px-6 py-2 bg-surface-container-high text-on-surface-variant hover:text-primary rounded-full text-sm font-medium transition-all">Work</button>
+                <button
+                    class="whitespace-nowrap px-6 py-2 bg-surface-container-high text-on-surface-variant hover:text-primary rounded-full text-sm font-medium transition-all">Family</button>
+                <button
+                    class="whitespace-nowrap px-6 py-2 bg-surface-container-high text-on-surface-variant hover:text-primary rounded-full text-sm font-medium transition-all">Regrets</button>
+                <button
+                    class="whitespace-nowrap px-6 py-2 bg-surface-container-high text-on-surface-variant hover:text-primary rounded-full text-sm font-medium transition-all">Secrets</button>
+                <button
+                    class="whitespace-nowrap px-6 py-2 bg-surface-container-high text-on-surface-variant hover:text-primary rounded-full text-sm font-medium transition-all">Funny</button>
+            </div>
+        </section>
+        <!-- Post CTA -->
+        <section class="mb-16">
+            <div
+                class="bg-surface-container-lowest border-2 border-primary-container/20 p-8 rounded-xl neon-card-glow relative overflow-hidden group hover:border-primary-container/40 transition-all duration-500">
+                <div
+                    class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-primary-container/10 blur-[80px] rounded-full group-hover:bg-primary-container/20 transition-all">
+                </div>
+                <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div class="space-y-2">
+                        <h2 class="text-3xl font-headline italic text-on-surface">Unburden your soul.</h2>
+                        <p class="text-on-surface-variant">The digital confessional is open. No names, no judgment.</p>
+                    </div>
+                    <button
+                        class="bg-primary-container text-on-primary-container px-8 py-4 rounded-xl font-bold shadow-[0_0_30px_rgba(188,19,254,0.4)] hover:scale-105 transition-transform">Confess
+                        Now</button>
+                </div>
+            </div>
+        </section>
+        <!-- Feed Grid -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+            <!-- Confession Card 1 -->
+            <article
+                class="bg-surface-container-low p-8 rounded-xl space-y-8 neon-card-glow relative border-l-4 border-secondary-container">
+                <div class="flex justify-between items-center">
+                    <span
+                        class="text-[10px] uppercase tracking-widest font-bold text-secondary bg-secondary-container/10 px-3 py-1 rounded-full">Regrets</span>
+                    <span class="text-xs text-outline font-medium tracking-tight">3h ago</span>
+                </div>
+                <p class="text-xl md:text-2xl font-body leading-relaxed text-on-surface font-light">
+                    "I still send texts to my ex's old number just to say the things I couldn't say when we were
+                    together. I know it's a dead line, but it's the only place I can be honest."
+                </p>
+                <div class="flex items-center gap-6 pt-4">
+                    <button
+                        class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined text-lg"
+                            style="font-variation-settings: 'FILL' 1;">whatshot</span>
+                        <span class="text-sm font-bold">128</span>
+                    </button>
+                    <button
+                        class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined text-lg"
+                            style="font-variation-settings: 'FILL' 1;">favorite</span>
+                        <span class="text-sm font-bold">45</span>
+                    </button>
+                    <button
+                        class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors ml-auto">
+                        <span class="material-symbols-outlined text-lg">more_horiz</span>
+                    </button>
+                </div>
+            </article>
+            <!-- Confession Card 2 (Large Editorial) -->
+            <article
+                class="bg-surface-container-low p-8 rounded-xl space-y-8 neon-card-glow border-t-4 border-primary-container md:row-span-2">
+                <div class="flex justify-between items-center">
+                    <span
+                        class="text-[10px] uppercase tracking-widest font-bold text-primary bg-primary-container/10 px-3 py-1 rounded-full">Secrets</span>
+                    <span class="text-xs text-outline font-medium tracking-tight">5h ago</span>
+                </div>
+                <p class="text-2xl md:text-3xl font-headline italic leading-snug text-on-surface">
+                    "I've been a high-stakes corporate lawyer for 15 years, but my real passion is competitive bird
+                    watching. My colleagues think I'm at 'closing dinners' when I'm actually in a marsh in Jersey."
+                </p>
+                <div
+                    class="h-48 w-full rounded-xl overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-700">
+                    <img alt="Moody marsh landscape" class="w-full h-full object-cover"
+                        data-alt="dramatic marsh landscape at dusk with tall reeds and a single bird flying against a deep purple and orange sunset sky"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAmNhRh6_hCIZ6bCJFiptpeim0Q6xNkn95swz6gHOy-kQcxkqqOXpgpcjWmNGnDH9nnX2j8KYr8suJhdB58jYKbqSNJOfn3N9a-B3nPXFd6vzb1dOtgvjaRxKfABPv5T1IWuScMP3-buUswxTcZyUGDTe1Swp1NYTnjTgPD1NAYV_SvQOVbCSEW04NkgArMNscZu_H4-03OKTmjcBB4soLP4GSwPQCao12XC_0t6W37mbJHNq1GVQ-_xoQ37-A1Y4rJ-EwQr33RwU" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent opacity-60">
+                    </div>
+                </div>
+                <div class="flex items-center gap-6 pt-4">
+                    <button
+                        class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined text-lg"
+                            style="font-variation-settings: 'FILL' 1;">whatshot</span>
+                        <span class="text-sm font-bold">892</span>
+                    </button>
+                    <button
+                        class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined text-lg"
+                            style="font-variation-settings: 'FILL' 1;">mood_bad</span>
+                        <span class="text-sm font-bold">312</span>
+                    </button>
+                </div>
+            </article>
+            <!-- Confession Card 3 -->
+            <article class="bg-surface-container-low p-8 rounded-xl space-y-8 neon-card-glow">
+                <div class="flex justify-between items-center">
+                    <span
+                        class="text-[10px] uppercase tracking-widest font-bold text-tertiary bg-tertiary-container/10 px-3 py-1 rounded-full">Work</span>
+                    <span class="text-xs text-outline font-medium tracking-tight">8h ago</span>
+                </div>
+                <p class="text-xl font-body leading-relaxed text-on-surface font-light">
+                    "I automated my entire data entry job 3 years ago. I spend 7 hours a day playing video games and
+                    only work for 15 minutes. No one has noticed."
+                </p>
+                <div class="flex items-center gap-6 pt-4">
+                    <button
+                        class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined text-lg"
+                            style="font-variation-settings: 'FILL' 1;">whatshot</span>
+                        <span class="text-sm font-bold">2.4k</span>
+                    </button>
+                    <button
+                        class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined text-lg"
+                            style="font-variation-settings: 'FILL' 1;">shutter_speed</span>
+                        <span class="text-sm font-bold">142</span>
+                    </button>
+                </div>
+            </article>
+            <!-- Confession Card 4 (Asymmetric Offset) -->
+            <article
+                class="bg-surface-container-low p-8 rounded-xl space-y-8 neon-card-glow border-r-4 border-primary-container/30">
+                <div class="flex justify-between items-center">
+                    <span
+                        class="text-[10px] uppercase tracking-widest font-bold text-primary bg-primary-container/10 px-3 py-1 rounded-full">Love</span>
+                    <span class="text-xs text-outline font-medium tracking-tight">12h ago</span>
+                </div>
+                <p class="text-xl font-body leading-relaxed text-on-surface italic">
+                    "The most romantic thing anyone ever said to me was written in the dust on my car window. I still
+                    don't know who did it, but I never want to find out. The mystery is better than the reality."
+                </p>
+                <div class="flex items-center gap-6 pt-4">
+                    <button
+                        class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined text-lg"
+                            style="font-variation-settings: 'FILL' 1;">favorite</span>
+                        <span class="text-sm font-bold">1.1k</span>
+                    </button>
+                    <button
+                        class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined text-lg"
+                            style="font-variation-settings: 'FILL' 1;">face_retouching_natural</span>
+                        <span class="text-sm font-bold">67</span>
+                    </button>
+                </div>
+            </article>
+        </section>
+    </main>
+    <!-- BottomNavBar Shell (Mobile only) -->
+    <nav
+        class="fixed bottom-0 left-0 w-full flex justify-around items-center py-3 px-4 md:hidden bg-[#1a1b21]/90 backdrop-blur-lg rounded-t-2xl shadow-[0_-10px_40px_rgba(188,19,254,0.1)] z-50">
+        <button
+            class="flex flex-col items-center justify-center text-[#ebb2ff] bg-[#bc13fe]/10 rounded-xl px-6 py-2 shadow-[0_0_15px_rgba(188,19,254,0.3)]">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">whatshot</span>
+            <span class="font-sans text-[10px] uppercase tracking-widest mt-1">Hot</span>
+        </button>
+        <button class="flex flex-col items-center justify-center text-[#d4c0d7] px-6 py-2">
+            <span class="material-symbols-outlined">trending_up</span>
+            <span class="font-sans text-[10px] uppercase tracking-widest mt-1">Trending</span>
+        </button>
+        <button class="flex flex-col items-center justify-center text-[#d4c0d7] px-6 py-2">
+            <span class="material-symbols-outlined">new_releases</span>
+            <span class="font-sans text-[10px] uppercase tracking-widest mt-1">New</span>
+        </button>
+        <button class="flex flex-col items-center justify-center text-[#d4c0d7] px-6 py-2">
+            <span class="material-symbols-outlined">equalizer</span>
+            <span class="font-sans text-[10px] uppercase tracking-widest mt-1">Top</span>
+        </button>
+    </nav>
+    <!-- FAB -->
+    <button
+        class="fixed bottom-24 right-6 md:bottom-12 md:right-12 w-16 h-16 bg-primary-container text-on-primary-container rounded-2xl shadow-[0_10px_40px_rgba(188,19,254,0.6)] flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 z-40 group">
+        <span class="material-symbols-outlined text-3xl group-hover:rotate-90 transition-transform">add</span>
+    </button>
+    <!-- Footer -->
+    <footer class="bg-[#0d0e13] w-full py-12 px-8 mt-20 border-t border-outline-variant/10">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6 max-w-7xl mx-auto">
+            <div class="font-serif italic text-2xl text-[#e3e1e9]">WhisperBox</div>
+            <div class="flex gap-8">
+                <a class="text-[#d4c0d7] hover:text-[#bc13fe] transition-colors font-sans text-sm" href="#">About</a>
+                <a class="text-[#d4c0d7] hover:text-[#bc13fe] transition-colors font-sans text-sm" href="#">Privacy</a>
+                <a class="text-[#d4c0d7] hover:text-[#bc13fe] transition-colors font-sans text-sm" href="#">Safety
+                    Guidelines</a>
+                <a class="text-[#d4c0d7] hover:text-[#bc13fe] transition-colors font-sans text-sm" href="#">Terms</a>
+            </div>
+            <div class="font-sans text-sm text-[#d4c0d7]">© 2024 WhisperBox. The Digital Confessional.</div>
+        </div>
+    </footer>
+</body>
+
+</html>
